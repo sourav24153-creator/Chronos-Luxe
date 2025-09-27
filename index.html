@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos Luxe | Premium Timepieces</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0a0a;
+            --secondary-dark: #1a1a1a;
+            --charcoal: #2a2a2a;
+            --gold: #d4af37;
+            --light-gold: #e6c875;
+            --white: #f5f5f5;
+            --gray: #888;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+            background-color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: var(--light-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.7rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--gold);
+            color: var(--primary-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), 
+                        url('https://images.unsplash.com/photo-1523275335684-37898b6baf30') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        /* Featured Collection */
+        .collection {
+            background: var(--secondary-dark);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--charcoal);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Craftsmanship Section */
+        .craftsmanship {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .craftsmanship-content, .craftsmanship-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .craftsmanship-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--secondary-dark);
+        }
+
+        .masonry-grid {
+            columns: 3;
+            column-gap: 1.5rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            background: var(--charcoal);
+            border: none;
+            color: var(--white);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .newsletter-form button {
+            background: var(--gold);
+            color: var(--primary-dark);
+            padding: 0 20px;
+            border-radius: 0 2px 2px 0;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--charcoal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--charcoal);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: var(--secondary-dark);
+            max-width: 900px;
+            width: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .modal-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+        }
+
+        .modal-info h2 {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .modal-info h2::after {
+            left: 0;
+            transform: none;
+        }
+
+        .modal-price {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-description {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 1rem;
+        }
+
+        .lightbox-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .masonry-grid {
+                columns: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3rem;
+                transition: right 0.3s ease;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .craftsmanship {
+                flex-direction: column;
+            }
+            
+            .masonry-grid {
+                columns: 1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .modal-body {
+                flex-direction: column;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 2px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 2px;
+                padding: 12px;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Chronos Luxe</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#collection">Collections</a></li>
+                    <li><a href="#craftsmanship">Craftsmanship</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="cart-icon" id="cartIcon">
+                    <span>🛒</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span>☰</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Timeless Elegance, Modern Precision</h1>
+                <p>Discover our exquisite collection of handcrafted luxury timepieces, where heritage meets innovation.</p>
+                <a href="#collection" class="btn">Explore Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="collection" id="collection">
+        <div class="container">
+            <h2>Featured Collection</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKK3jsoo6lTcjAXJ9COeN1vrs5O1L9Hevx9A&s" alt="Rose Gold Watch" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <h3>Heritage Rose Gold</h3>
+                        <p class="price">$4,250</p>
+                        <button class="btn btn-outline quick-view" data-id="1">Quick View</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3" alt="Steel Watch" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <h3>Classic Stainless Steel</h3>
+                        <p class="price">$3,850</p>
+                        <button class="btn btn-outline quick-view" data-id="2">Quick View</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <img src="https://www.swissluxury.com/product_images/400/U13313121B1A1.jpg" alt="Premium Black Watch" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <h3>Midnight Black Edition</h3>
+                        <p class="price">$4,750</p>
+                        <button class="btn btn-outline quick-view" data-id="3">Quick View</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card fade-in">
+                    <img src="https://www.mnmlst.in/cdn/shop/files/Heritage_Rose_Gold_Black_-_5.jpg?v=1757656152&width=1445" alt="Luxury Gold Watch" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <h3>Imperial Gold</h3>
+                        <p class="price">$5,500</p>
+                        <button class="btn btn-outline quick-view" data-id="4">Quick View</button>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT885lP-pdjrXMOBy9VTTbHjZUeShypqhIk9vWWLkSsFSQ8BILZxG9F5JF5SfHM92zTKq8&usqp=CAU" alt="Luxury Gold Watch" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <h3>Imperial Gold</h3>
+                        <p class="price">$5,500</p>
+                        <button class="btn btn-outline quick-view" data-id="4">Quick View</button>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx8lXdjl8pLS4Ar52v-v8Cpnn2FkCupz0Lg2IQH9SILxQrHstchIapsQkTa43OtynBhB0&usqp=CAU" alt="Luxury Gold Watch" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <h3>Imperial Gold</h3>
+                        <p class="price">$5,500</p>
+                        <button class="btn btn-outline quick-view" data-id="4">Quick View</button>
+                    </div>
+                </div>
+
+
+
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Craftsmanship Section -->
+    <section class="craftsmanship" id="craftsmanship">
+        <div class="container">
+            <div class="craftsmanship-content fade-in">
+                <h2>Swiss Craftsmanship</h2>
+                <p>For over a century, our master watchmakers have dedicated themselves to the art of precision timekeeping. Each Chronos Luxe timepiece is a testament to Swiss excellence, combining traditional techniques with innovative technology.</p>
+                <p>Every component is meticulously crafted and assembled by hand, ensuring unparalleled quality and attention to detail. Our commitment to perfection is evident in every tick, every movement, and every finished watch that bears our name.</p>
+                <a href="#" class="btn">Discover Our Process</a>
+            </div>
+  
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Lookbook Gallery</h2>
+            <div class="masonry-grid">
+
+         
+                <div class="masonry-item">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" alt="Premium Watch Collection" loading="lazy" class="gallery-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Watch Mechanism" loading="lazy" class="gallery-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d" alt="Luxury Watch on Wrist" loading="lazy" class="gallery-image">
+                </div>
+ 
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Chronos Luxe</h3>
+                    <p>Experience the pinnacle of watchmaking excellence with our exclusive collection of luxury timepieces.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                        <a href="#" class="social-icon">tw</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Number 343, Kohat Enclave, Pitampura, New Delhi, Delhi, 110034</p>
+                    <p>+91 8457008361</p>
+                    <p>info@chronosluxe.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive updates on new collections and exclusive offers.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Chronos Luxe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="Product Image">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle">Product Title</h2>
+                    <p class="modal-price" id="modalPrice">$0.00</p>
+                    <p class="modal-description" id="modalDescription">Product description goes here.</p>
+                    <button class="btn" id="addToCart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox" id="closeLightbox">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Gallery Image">
+        </div>
+        <div class="lightbox-nav">
+            <button id="prevBtn">&lt;</button>
+            <button id="nextBtn">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = {
+            1: {
+                title: "Heritage Rose Gold",
+                price: "$4,250",
+                image: "https://www.mnmlst.in/cdn/shop/files/Heritage_Rose_Gold_Black_-_5.jpg?v=1757656152&width=1445",
+                description: "A timeless masterpiece featuring a rose gold case and brown alligator leather strap. This watch combines classic elegance with modern precision, powered by our exclusive automatic movement with 72-hour power reserve."
+            },
+            2: {
+                title: "Classic Stainless Steel",
+                price: "$3,850",
+                image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3",
+                description: "Sleek and sophisticated, this stainless steel timepiece features a silver dial with blue hands and a date complication. Water-resistant to 100 meters, it's the perfect companion for both business and leisure."
+            },
+            3: {
+                title: "Midnight Black Edition",
+                price: "$4,750",
+                image: "https://images.unsplash.com/photo-1516728778615-2d590ea1855e",
+                description: "Bold and mysterious, the Midnight Black Edition features a black ceramic case, black dial, and black rubber strap. Luminescent markers ensure readability in any lighting condition."
+            },
+            4: {
+                title: "Imperial Gold",
+                price: "$5,500",
+                image: "https://images.unsplash.com/photo-1523170335258-f5eF6FfLp6Y",
+                description: "The epitome of luxury, this 18k gold timepiece features a mother-of-pearl dial and diamond hour markers. Each watch is individually numbered and comes with a certificate of authenticity."
+            }
+        };
+
+        // Gallery images
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1518544889280-cf3581a56b1f",
+            "https://images.unsplash.com/photo-1526045431048-3bfa7568e8f8",
+            "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+            "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+            "https://images.unsplash.com/photo-1524805444758-089113d48a6d",
+            "https://images.unsplash.com/photo-1547996160-81dfd58739c8"
+        ];
+
+        // DOM Elements
+        const header = document.getElementById('header');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const cartCount = document.getElementById('cartCount');
+        const quickViewButtons = document.querySelectorAll('.quick-view');
+        const productModal = document.getElementById('productModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        const addToCartBtn = document.getElementById('addToCart');
+        const newsletterForm = document.getElementById('newsletterForm');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeLightbox = document.getElementById('closeLightbox');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const galleryImagesElements = document.querySelectorAll('.gallery-image');
+
+        // Current product and lightbox index
+        let currentProductId = null;
+        let currentLightboxIndex = 0;
+
+        // Initialize cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        updateCartCount();
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Quick view modal functionality
+        quickViewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                currentProductId = productId;
+                
+                const product = products[productId];
+                modalImg.src = product.image;
+                modalTitle.textContent = product.title;
+                modalPrice.textContent = product.price;
+                modalDescription.textContent = product.description;
+                
+                productModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            productModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === productModal) {
+                productModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Add to cart functionality
+        addToCartBtn.addEventListener('click', () => {
+            if (currentProductId) {
+                // Check if product is already in cart
+                const existingItem = cart.find(item => item.id === currentProductId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: currentProductId,
+                        title: products[currentProductId].title,
+                        price: products[currentProductId].price,
+                        quantity: 1
+                    });
+                }
+                
+                // Save to localStorage and update count
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                
+                // Show confirmation (in a real app, this would be more sophisticated)
+                alert(`${products[currentProductId].title} added to cart!`);
+            }
+        });
+
+        // Update cart count
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Newsletter form validation
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            
+            // Simple email validation
+            if (email && email.includes('@')) {
+                // In a real application, you would send this to a server
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Lightbox functionality
+        galleryImagesElements.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentLightboxIndex = index;
+                lightboxImg.src = galleryImages[index];
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        closeLightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Lightbox navigation
+        prevBtn.addEventListener('click', () => {
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+            lightboxImg.src = galleryImages[currentLightboxIndex];
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+            lightboxImg.src = galleryImages[currentLightboxIndex];
+        });
+
+        // Scroll animations
+        function checkScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial check and scroll event listener
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
+</body>
+</html>
